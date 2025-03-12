@@ -27,3 +27,21 @@ Festivo is a web application that helps festival-goers discover new artists base
 
 **Next Up:**
 - Docker Compose for backend, PostgreSQL, Redis
+
+
+### Day 2 - Database Schema & First GitHub Push (3/11/25)  
+**What I Did:**  
+- Designed database schema & relationships  
+- Implemented FastAPI models using SQLAlchemy  
+- Fixed `.gitignore` to prevent `venv/` & `__pycache__` from being tracked  
+- First push to GitHub  
+
+**What I Learned:**  
+- How to design scalable database models  
+- Best practices for `UUID` primary keys  
+- How to clean up a Git repo before pushing  
+
+**Next Up:**  
+- Set up Alembic for database migrations  
+- Connect FastAPI to PostgreSQL  
+- Start building API endpoints  
