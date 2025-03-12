@@ -3,45 +3,34 @@
 ## About
 Festivo is a web application that helps festival-goers discover new artists based on their Spotify listening history.
 
-## Tech Stack
-- Backend: FastAPI (Python)
-- Frontend: React
-- Database: PostgreSQL
-- Cache: Redis
-- Authentication: Spotify OAuth
-- Deployment: Docker Compose (local), AWS ECS (planned)
+## Tech Stack  
 
----
+### Frontend  
+- **React** – UI framework  
+- **TypeScript** – Type-safe development  
+- **React Query** – Efficient data fetching & caching  
+- **Zustand / Redux Toolkit** – State management (TBD)  
+- **Vite** – Fast build tool  
+- **Tailwind CSS** – Utility-first styling  
 
-## 📝 Dev Log
+### Backend  
+- **FastAPI** – High-performance Python API framework  
+- **SQLAlchemy** – ORM for database management  
+- **OAuth (Spotify)** – User authentication & authorization  
+- **Redis** – Caching layer for performance optimization  
+- **Alembic** – Database migrations  
 
-### Day 1 - Project Kickoff (3/5/25)
-**What I Did:**
-- Created repo & cloned it locally
-- Set up backend, frontend folders
-- Added initial README & project plan
+### Database  
+- **PostgreSQL** – Relational database for storing user, artist, and track data  
 
-**What I Learned:**
-- How to plan projects like a professional engineer
-- How to break learning goals into project phases
+### Deployment  
+- **Docker Compose** – Local development setup  
+- **AWS ECS** (Planned) – Production deployment   
 
-**Next Up:**
-- Docker Compose for backend, PostgreSQL, Redis
+## Setup  
+1. Clone the repo  
+2. Install dependencies (`pip install -r requirements.txt`)  
+3. Set up `.env` with Spotify API keys  
+4. Run with Docker Compose (`docker-compose up --build`)  
 
-
-### Day 2 - Database Schema & First GitHub Push (3/11/25)  
-**What I Did:**  
-- Designed database schema & relationships  
-- Implemented FastAPI models using SQLAlchemy  
-- Fixed `.gitignore` to prevent `venv/` & `__pycache__` from being tracked  
-- First push to GitHub  
-
-**What I Learned:**  
-- How to design scalable database models  
-- Best practices for `UUID` primary keys  
-- How to clean up a Git repo before pushing  
-
-**Next Up:**  
-- Set up Alembic for database migrations  
-- Connect FastAPI to PostgreSQL  
-- Start building API endpoints  
+_For detailed progress updates, check out [`DEVLOG.md`](DEVLOG.md)._  
