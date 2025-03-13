@@ -1,0 +1,31 @@
+version: "3.8"
+
+services: # Each service is a container
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://festivo_user:festivo_password@db:5432/festivo_db
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=festivo_user
+      - POSTGRES_PASSWORD=festivo_password
+      - POSTGRES_DB=festivo_db
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "festivo_user"]
+      interval: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Keeps data even if container is restarted
+
+volumes:
+  postgres_data: # Named volume to persist PostgreSQL data
