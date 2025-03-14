@@ -14,4 +14,4 @@ class Artist(Base):
     popularity = Column(Integer, nullable=False)
     image_url = Column(String, nullable=True)
     spotify_url = Column(String, nullable=True)
-    last_updated = Column(TIMESTAMP, server_default="now()")
+    last_updated = Column(TIMESTAMP(timezone=True), server_default="now()")

@@ -12,4 +12,4 @@ class Festival(Base):
     year = Column(Integer, nullable=False)
     location = Column(String, nullable=False)
     image_url = Column(String, nullable=True)
-    last_updated = Column(TIMESTAMP, server_default="now()")
+    last_updated = Column(TIMESTAMP(timezone=True), server_default="now()")

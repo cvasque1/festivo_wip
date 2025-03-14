@@ -11,4 +11,4 @@ class Track(Base):
     name = Column(String, nullable=False) 
     preview_url = Column(String, nullable=True) 
     spotify_url = Column(String, nullable=True)
-    created_at = Column(TIMESTAMP, server_default="now()") 
+    created_at = Column(TIMESTAMP(timezone=True), server_default="now()") 

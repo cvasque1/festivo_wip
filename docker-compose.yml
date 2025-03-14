@@ -7,6 +7,8 @@ services: # Each service is a container
       - ./backend:/app
     ports:
       - "8000:8000"
+    env_file:
+      - ./.env
     depends_on:
       - db
     environment:
@@ -20,10 +22,6 @@ services: # Each service is a container
       - POSTGRES_USER=festivo_user
       - POSTGRES_PASSWORD=festivo_password
       - POSTGRES_DB=festivo_db
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "festivo_user"]
-      interval: 5s
-      retries: 5
     volumes:
       - postgres_data:/var/lib/postgresql/data # Keeps data even if container is restarted
 
