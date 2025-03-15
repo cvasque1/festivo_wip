@@ -6,7 +6,6 @@ from app.services.auth_service import exchange_code_for_token, get_spotify_user_
 from app.config.database import get_db
 import secrets
 import urllib.parse
-import json
 
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -46,6 +45,10 @@ def callback(request: Request, db: Session = Depends(get_db)):
     code = request.query_params.get("code")
     state = request.query_params.get("state")
     stored_state = request.cookies.get("auth_state")
+
+    # Debugging prints
+    print(f"Received state: {state}")
+    print(f"Stored state: {stored_state}")
 
     if error:
         return RedirectResponse(FRONTEND_HOME_URL)

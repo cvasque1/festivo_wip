@@ -1,5 +1,5 @@
 from app.models.base import Base
-from sqlalchemy import Column, TIMESTAMP, ForeignKey, Enum
+from sqlalchemy import Column, TIMESTAMP, ForeignKey, Enum, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 import enum
@@ -19,3 +19,5 @@ class UserArtist(Base):
     artist_id = Column(UUID(as_uuid=True), ForeignKey("artists.id"), nullable=False)
     timeframe = Column(Enum(TimeframeEnum, name="timeframe_enum"), nullable=False)
     retrieved_at = Column(TIMESTAMP, server_default="now()")
+
+    __table_args__ = (UniqueConstraint("user_id", "artist_id", "timeframe", name="uq_user_artist_timeframe"),)
